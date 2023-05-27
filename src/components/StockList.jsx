@@ -5,8 +5,8 @@ import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs"
 import { WatchListContext } from "../context/watchListContext"
 
 export const StockList = () => {
-  const [stock, setStock] = useState([])
-  const {watchList} = useContext(WatchListContext)
+  const [ stock, setStock ] = useState([])
+  const { watchList, removeStock } = useContext(WatchListContext)
   const navigate = useNavigate()  
 
   const changeColor = (change) => {
@@ -83,7 +83,10 @@ export const StockList = () => {
                   <td> {stockData.data.h} </td>
                   <td> {stockData.data.l} </td>
                   <td> {stockData.data.o} </td>
-                  <td> {stockData.data.pc} </td>
+                  <td> {stockData.data.pc.toFixed(2)} </td>
+                  <td> <button className="btn btn-danger btn-sm ml-5 d-inline-block delete-button" onClick={(e) => {
+                    e.stopPropagation() 
+                    removeStock(stockData.symbol)}}> Remove </button> </td>
                 </tr>
               )
           })}
