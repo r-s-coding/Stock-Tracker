@@ -10,7 +10,7 @@ export const WatchListContextProvider = (props) => {
   const addStock = (stock) => {
     if (watchList.indexOf(stock) === -1) {
       setWatchList([...watchList, stock])
-    }    
+    }     
   }
 
   const removeStock = (stock) => {

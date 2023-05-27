@@ -10,7 +10,7 @@ export const AutoComplete = () => {
   const renderDropdown = () => {
     const dropDownClass = search.length > 1 ? "show" : null
     return (
-      <ul style={{height: "500px", overflowY: scroll, overflowX: "hidden", cursor: "pointer"}}className={`dropdown-menu ${dropDownClass}`}>
+      <ul style={{height: "500px", overflowY: scroll, overflowX: "hidden", cursor: "pointer"}} className={`dropdown-menu ${dropDownClass}`}>
         {results.map((result) => {
           return (
             <li onClick={() => {addStock(result.symbol); setSearch("")}} key={result.symbol} className="dropdown-item"> {result.description} ({result.symbol})</li>
